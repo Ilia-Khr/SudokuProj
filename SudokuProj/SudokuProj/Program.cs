@@ -10,7 +10,8 @@ namespace SudokuProj
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello world");
+            string s = Console.ReadLine();
+            Console.WriteLine(s);
         }
     }
 }
