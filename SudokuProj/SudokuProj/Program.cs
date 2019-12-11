@@ -12,7 +12,9 @@ namespace SudokuProj
         {
             string s = Console.ReadLine();
             Console.WriteLine(s);
+            Console.WriteLine("Howdy folks");
             Console.ReadLine();
+
         }
     }
 }
