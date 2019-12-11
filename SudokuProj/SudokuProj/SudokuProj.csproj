@@ -43,11 +43,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InterfaceAndAbstract\AbstractSession.cs" />
+    <Compile Include="InterfaceAndAbstract\IArea.cs" />
+    <Compile Include="Model\TripleRow.cs" />
+    <Compile Include="Model\TripleColumn.cs" />
+    <Compile Include="Model\Matrix.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="GameStatisticsMethods\" />
+    <Folder Include="Manipulations\" />
+    <Folder Include="Repository\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
