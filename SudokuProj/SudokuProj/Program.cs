@@ -14,6 +14,7 @@ namespace SudokuProj
             Console.WriteLine(s);
             Console.WriteLine("Howdy folks");
             var WhenWillIlyaMarryEmmaStone = DateTime.Now;
+            Console.WriteLine($"It will happen{WhenWillIlyaMarryEmmaStone}");
             Console.ReadLine();
 
         }
