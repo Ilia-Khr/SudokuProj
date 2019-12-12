@@ -8,11 +8,8 @@ namespace SudokuProj.InterfaceAndAbstract
 {
     public interface IArea
     {
-
-        int[][] _area { get; }
-        int[] _element1 { get; }
-        int[] _element2 { get; }
-        int[] _element3 { get; }
-
+        int[] element1 { get; }
+        int[] element2 { get; }
+        int[] element3 { get; }
     }
 }

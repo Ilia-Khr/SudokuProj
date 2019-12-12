@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="InterfaceAndAbstract\AbstractSession.cs" />
     <Compile Include="InterfaceAndAbstract\IArea.cs" />
+    <Compile Include="Manipulations\RandomizeMatrix.cs" />
     <Compile Include="Model\TripleRow.cs" />
     <Compile Include="Model\TripleColumn.cs" />
     <Compile Include="Model\Matrix.cs" />
@@ -57,7 +58,6 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="GameStatisticsMethods\" />
-    <Folder Include="Manipulations\" />
     <Folder Include="Repository\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
