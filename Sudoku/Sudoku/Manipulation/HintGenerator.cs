@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SudokuApp.Manipulations
+namespace Sudoku.Manipulation
 {
     public class HintGenerator
     {
