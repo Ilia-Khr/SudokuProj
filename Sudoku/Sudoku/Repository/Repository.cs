@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
+using Sudoku.GameModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace Sudoku.Repository
@@ -15,6 +17,7 @@ namespace Sudoku.Repository
         private List<Record> records = new List<Record>();
 
         public void AddSession(Session session)
+
         {
             sessions.Add(session);
         }

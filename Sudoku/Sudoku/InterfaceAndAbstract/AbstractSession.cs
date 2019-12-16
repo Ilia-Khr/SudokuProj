@@ -12,3 +12,4 @@ namespace Sudoku.InterfaceAndAbstract
         public decimal? TotalTimeMinutes { get; set; }
 
     }
+}
