@@ -15,6 +15,7 @@ namespace SudokuApp.Manipulations
             coordinates = GenerateHint(level);
         }
 
+
         private List<int[]> GenerateHint(int level)
         {
             Random random = new Random();
