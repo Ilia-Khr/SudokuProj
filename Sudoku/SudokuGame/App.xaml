@@ -4,6 +4,147 @@
              xmlns:local="clr-namespace:SudokuGame"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="ButtonJAPStyle" TargetType="Button">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="TextElement.FontFamily" Value="/fonts/#Bonzai"/>
+            <Setter Property="Control.FontSize" Value="45"/>
+            <Setter Property="Control.FontStyle" Value="Normal"/>
+            <Setter Property="Control.FontWeight" Value="Bold"/>
+            <Setter Property="Control.Background" Value="Transparent"/>
+            <Setter Property="Control.BorderBrush" Value="Transparent"/>
+            <Setter Property="Control.Width" Value="220"/>
+            <Setter Property="Control.Height" Value="48"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border>
+                            <Border.Style>
+                                <Style TargetType="{x:Type Border}">
+                                    <Style.Triggers>
+                                        <Trigger Property="Control.IsFocused" Value="True">
+                                            <Setter Property="Control.Foreground" Value="DarkRed" />
+                                        </Trigger>
+                                        <Trigger Property="Control.IsMouseOver" Value="True">
+                                            <Setter Property="Control.Foreground" Value="DarkRed"/>
+                                            <Setter Property="Control.FontWeight" Value="Heavy"/>
+                                        </Trigger>
+                                        <Trigger Property="Button.IsPressed" Value="True">
+                                            <Setter Property="Control.Foreground" Value="Red" />
+                                        </Trigger>
+
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <Grid Background="Transparent">
+                                <ContentPresenter></ContentPresenter>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+        <Style x:Key="TextHeaderStyle" TargetType="TextBlock">
+            <Setter Property="Control.HorizontalAlignment" Value="Center"/>
+            <Setter Property="Control.VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Control.FontSize" Value="70"/>
+            <Setter Property="Control.FontWeight" Value="Bold"/>
+            <Setter Property="TextElement.FontFamily" Value="/fonts/#Karate"/>
+        </Style>
+
+        <Style x:Key="BronzeButton" TargetType="Button">
+            <Setter Property="FontSize" Value="35"/>
+            <Setter Property="FontFamily" Value="/fonts/#Bonzai"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border>
+                            <Border.Style>
+                                <Style TargetType="{x:Type Border}">
+                                    <Style.Triggers>
+                                        <Trigger Property="Control.IsMouseOver" Value="True">
+                                            <Setter Property="ItemsControl.Foreground" Value="Brown"/>
+                                            <Setter Property="Control.FontWeight" Value="Bold"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <Grid Background="Transparent">
+                                <ContentPresenter></ContentPresenter>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SilverButton" TargetType="Button" BasedOn="{StaticResource BronzeButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border>
+                            <Border.Style>
+                                <Style TargetType="{x:Type Border}">
+                                    <Style.Triggers>
+
+                                        <Trigger Property="Control.IsMouseOver" Value="True">
+                                            <Setter Property="ItemsControl.Foreground" Value="RoyalBlue"/>
+                                            <Setter Property="Control.FontWeight" Value="Bold"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <Grid Background="Transparent">
+                                <ContentPresenter></ContentPresenter>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="GoldenButton" TargetType="Button" BasedOn="{StaticResource BronzeButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border>
+                            <Border.Style>
+                                <Style TargetType="{x:Type Border}">
+                                    <Style.Triggers>
+
+                                        <Trigger Property="Control.IsMouseOver" Value="True">
+                                            <Setter Property="ItemsControl.Foreground" Value="DarkGoldenrod"/>
+                                            <Setter Property="Control.FontWeight" Value="Bold"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <Grid Background="Transparent">
+                                <ContentPresenter></ContentPresenter>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ButtonGameStyle" TargetType="Button" BasedOn="{StaticResource ButtonJAPStyle}">
+            <Setter Property="TextElement.FontFamily" Value="/fonts/#Bonzai"/>
+            <Setter Property="Control.FontStyle" Value="Normal"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
     </Application.Resources>
 </Application>

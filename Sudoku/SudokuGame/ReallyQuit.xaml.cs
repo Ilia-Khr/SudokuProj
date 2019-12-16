@@ -1,9 +1,6 @@
-﻿using SudokuGame;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -17,14 +14,22 @@ using System.Windows.Shapes;
 namespace SudokuGame
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для ReallyQuit.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ReallyQuit : Page
     {
-        public MainWindow()
+        public ReallyQuit()
         {
             InitializeComponent();
-            Navigator.Initialize(page => _mainFrame.Navigate(page));
+        }
+
+        public void OnYesButton(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Close();
+        }
+
+        public void OnNoButton(object sender, RoutedEventArgs e)
+        {
             Navigator.Default.Navigate(new MainMenu());
         }
     }

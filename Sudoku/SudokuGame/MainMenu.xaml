@@ -1,0 +1,40 @@
+﻿<Page x:Class="SudokuGame.MainMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SudokuGame"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="1000"
+      Title="Sudoku Trainer" ShowsNavigationUI="False">
+
+    <Page.Background>
+        <ImageBrush ImageSource="pack://application:,,,/images/bgmain.jpg"></ImageBrush>
+    </Page.Background>
+
+
+    <Grid HorizontalAlignment="Left" Width="1500" AllowDrop="False" Margin="-133,-8,0,8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*" ></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Sudoku Trainer" Style="{StaticResource TextHeaderStyle}" Height="148" Width="629" 
+                HorizontalAlignment="Left" VerticalAlignment="Center" Margin="300,0,0,0"/>
+
+        <Button Content="New Game" Style="{StaticResource ButtonJAPStyle}" Click="OnNewGameClick" 
+                Grid.Row="1" Margin="789,8,0,6" HorizontalAlignment="Left" Panel.ZIndex="5" Width="250"/>
+
+        <Button Content="Leaderboards" Style="{StaticResource ButtonJAPStyle}" Click="OnLeaderboardsClick"
+                Grid.Row="2" Margin="789,8,0,7" HorizontalAlignment="Left" Width="290"/>
+
+        <Button  Content="Exit" Style="{StaticResource ButtonJAPStyle}" Click="OnExitClick" 
+                Grid.Row="3" Margin="789,8,0,6" HorizontalAlignment="Left" Width="250" />
+
+
+
+    </Grid>
+</Page>

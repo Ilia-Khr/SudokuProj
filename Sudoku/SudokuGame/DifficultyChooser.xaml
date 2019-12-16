@@ -1,0 +1,40 @@
+﻿<Page x:Class="SudokuGame.DifficultyChooser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SudokuGame"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DifficultyChooser">
+
+    <Page.Background>
+        <ImageBrush ImageSource="pack://application:,,,/images/samurai.jpeg"></ImageBrush>
+    </Page.Background>
+
+
+    <Grid HorizontalAlignment="Center" Width="1500" AllowDrop="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" ></RowDefinition>
+            <RowDefinition Height="30*"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Center" Height="250" Grid.Row="1" VerticalAlignment="Center" Width="800">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"></ColumnDefinition>
+                <ColumnDefinition Width="50*"></ColumnDefinition>
+                <ColumnDefinition Width="50*"></ColumnDefinition>
+                <ColumnDefinition Width="50*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Content="EASY" Height="52" Width="74" 
+                    Style="{StaticResource BronzeButton}" Click="OnEasyClick"/>
+            <Button Content="MEDIUM" HorizontalAlignment="Center" Height="52" VerticalAlignment="Center" Width="114"  Grid.Column="1"
+                    Style="{StaticResource SilverButton}" Click="OnMediumClick"/>
+            <Button Content="HARD" Height="52" Width="74" Grid.Column="2"
+                    Style="{StaticResource GoldenButton}" Click="OnHardClick"/>
+        </Grid>
+        <TextBlock Text="Choose the Difficulty Level:" Height="102" FontSize="50" Style="{StaticResource TextHeaderStyle}"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="382,0,0,0" Grid.Row="2" Width="100" Height="50" 
+                Style="{StaticResource ButtonJAPStyle}" Click="ToMainMenu" VerticalAlignment="Center" RenderTransformOrigin="0.482,0.622"/>
+    </Grid>
+</Page>

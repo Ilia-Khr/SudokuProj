@@ -1,0 +1,78 @@
+﻿<Page x:Class="SudokuGame.GameSession"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SudokuGame"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="GameSession" ShowsNavigationUI="False">
+
+    <Page.Background>
+        <ImageBrush ImageSource="pack://application:,,,/images/samurai.jpeg"></ImageBrush>
+    </Page.Background>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500*"/>
+            <ColumnDefinition Width="200*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Button Content="Back to Main Menu" HorizontalAlignment="Left" Margin="20,15,0,0" Grid.Column="0" Width="318" Height="50" FontSize="35"
+                Style="{StaticResource ButtonJAPStyle}" Click="ToMainMenu" VerticalAlignment="Top" Grid.Row="1"/>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Left" Height="50" Margin="20,20,0,20" Grid.Row="0" TextWrapping="Wrap" Width="70"
+                   Text="Timer:" FontSize="30" FontFamily="/fonts/#Bonzai" />
+            <Button Content="Hint" Height="45" VerticalAlignment="Center" Width="98"
+                Style="{StaticResource ButtonGameStyle}" Grid.Row="1"/>
+            <Button Content="Undo" Height="45" VerticalAlignment="Center" Width="118"
+                Style="{StaticResource ButtonGameStyle}" Grid.Row="2"/>
+            <Button Content="Reset" Height="45" VerticalAlignment="Center" Width="118"
+                Style="{StaticResource ButtonGameStyle}" Grid.Row="3"/>
+        </Grid>
+
+
+        <Viewbox Grid.Column="0" Grid.Row="0" Stretch="Uniform" Margin="50,50,50,100" HorizontalAlignment="Center" >
+            <Grid x:Name="SudokuGrid" Width="50" Height="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+            </Grid>
+        </Viewbox>
+
+    </Grid>
+</Page>
