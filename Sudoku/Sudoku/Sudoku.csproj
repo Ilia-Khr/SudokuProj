@@ -7,9 +7,6 @@
 
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="GameModel\" />
-    <Folder Include="InterfaceAndAbstract\" />
-    <Folder Include="Manipulation\" />
   </ItemGroup>
 
   <ItemGroup>
