@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SudokuGame"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="1000"
       Title="GameSession" ShowsNavigationUI="False">
 
     <Page.Background>
@@ -27,7 +27,7 @@
                 Style="{StaticResource ButtonJAPStyle}" Click="ToMainMenu" VerticalAlignment="Top" Grid.Row="1"/>
         </Grid>
 
-        <Grid Grid.Column="1">
+        <Grid Grid.ColumnSpan="2" Margin="714,0,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="1*"/>
@@ -38,12 +38,14 @@
             </Grid.RowDefinitions>
             <TextBlock HorizontalAlignment="Left" Height="50" Margin="20,20,0,20" Grid.Row="0" TextWrapping="Wrap" Width="70"
                    Text="Timer:" FontSize="30" FontFamily="/fonts/#Bonzai" />
-            <Button Content="Hint" Height="45" VerticalAlignment="Center" Width="98"
+            <Button Content="" Height="45" VerticalAlignment="Center" Width="98"
                 Style="{StaticResource ButtonGameStyle}" Grid.Row="1"/>
-            <Button Content="Undo" Height="45" VerticalAlignment="Center" Width="118"
+            <Button Content="" Height="50" VerticalAlignment="Center" Width="118"
                 Style="{StaticResource ButtonGameStyle}" Grid.Row="2"/>
-            <Button Content="Reset" Height="45" VerticalAlignment="Center" Width="118"
+            <Button Content="New Try" Height="50" VerticalAlignment="Center" Width="180"
                 Style="{StaticResource ButtonGameStyle}" Grid.Row="3"/>
+            <Button Content="Complete" Height="50" VerticalAlignment="Top" Width="216"
+                Style="{StaticResource ButtonGameStyle}" Grid.Row="4" Margin="0,150,0,0"/>
         </Grid>
 
 

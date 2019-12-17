@@ -57,6 +57,12 @@
             <Setter Property="TextElement.FontFamily" Value="/fonts/#Karate"/>
         </Style>
 
+        <Style x:Key="TableHeaderStyle">
+            
+            <Setter Property="TextElement.FontFamily" Value="/fonts/#Bonzai"/>
+            <Setter Property="TextElement.FontSize" Value="18"/>
+        </Style>
+
         <Style x:Key="BronzeButton" TargetType="Button">
             <Setter Property="FontSize" Value="35"/>
             <Setter Property="FontFamily" Value="/fonts/#Bonzai"/>
