@@ -19,6 +19,7 @@ namespace SudokuGame
     public partial class GameSession : Page
     {
         private TextBox[,] sudokuTextBoxes;
+        private string[,] _textBoxesValidation;
 
         public GameSession()
         {
@@ -41,10 +42,13 @@ namespace SudokuGame
             return new Thickness(left, top, right, bottom);
         }
 
+
+
         private void GenerateSudokuGrid()
         {
 
             sudokuTextBoxes = new TextBox[9, 9];
+            _textBoxesValidation = new string[9, 9];
             for (int i = 0; i < 9; i++)
                 for (int j = 0; j < 9; j++)
                 {
@@ -56,7 +60,7 @@ namespace SudokuGame
                     };
                     sudokuTextBoxes[i, j] = new TextBox
                     {
-
+                        Name = "currentTextBox",
                         FontSize = 3,
                         VerticalAlignment = VerticalAlignment.Center,
                         HorizontalAlignment = HorizontalAlignment.Center,
@@ -67,13 +71,35 @@ namespace SudokuGame
                         BorderThickness = new Thickness(0.5),
 
                     };
-
+                    sudokuTextBoxes[i, j].TextChanged += FixHandler(i, j);
                     border.Child = sudokuTextBoxes[i, j];
                     Grid.SetRow(border, i);
                     Grid.SetColumn(border, j);
                     SudokuGrid.Children.Add(border);
                 }
         }
+
+        private TextChangedEventHandler FixHandler(int x, int y)
+            => (textBox, _) => OnTextBoxValueChange(x, y, textBox as TextBox);
+
+        private void OnTextBoxValueChange(int x, int y, TextBox textBox)
+        {
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                _textBoxesValidation[x, y] = null;
+                textBox.Text = null;
+            }
+            else if (uint.TryParse(textBox.Text, out var number) && number <= 9)
+            {
+                _textBoxesValidation[x, y] = textBox.Text;
+            }
+            else
+            {
+                textBox.Text = _textBoxesValidation[x, y];
+                textBox.SelectionStart = textBox.Text.Length;
+            }
+        }
+
 
 
     }
