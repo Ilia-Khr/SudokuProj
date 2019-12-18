@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sudoku.Manipulation
 {
-    class RandomizeMatrix
+    public class RandomizeMatrix
     {
         private int randomitem;
         private int randomarea;

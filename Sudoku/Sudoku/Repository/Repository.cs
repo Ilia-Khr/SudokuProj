@@ -22,6 +22,12 @@ namespace Sudoku.Repository
             sessions.Add(session);
         }
 
+        public decimal AverageTime()
+        {
+            decimal time = sessions.Average(x => x.TotalTimeMinutes) ?? 0;
+            return time;
+        }
+
         public void CloseGame(Session session)
         {
             session.Ended = DateTime.Now;

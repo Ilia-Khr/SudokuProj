@@ -43,8 +43,8 @@
             <Button Content="" Height="50" VerticalAlignment="Center" Width="118"
                 Style="{StaticResource ButtonGameStyle}" Grid.Row="2"/>
             <Button Content="New Try" Height="50" VerticalAlignment="Center" Width="180"
-                Style="{StaticResource ButtonGameStyle}" Grid.Row="3"/>
-            <Button Content="Complete" Height="50" VerticalAlignment="Top" Width="216"
+                Style="{StaticResource ButtonGameStyle}" Grid.Row="3" Click="Retry"/>
+            <Button Content="Complete" Click="Completing" Height="50" VerticalAlignment="Top" Width="216"
                 Style="{StaticResource ButtonGameStyle}" Grid.Row="4" Margin="0,150,0,0"/>
         </Grid>
 

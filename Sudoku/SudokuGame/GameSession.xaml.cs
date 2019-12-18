@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sudoku.Manipulation;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,11 +21,21 @@ namespace SudokuGame
     {
         private TextBox[,] sudokuTextBoxes;
         private string[,] _textBoxesValidation;
+        private List<int[]> coordinates;
+        private int difficulty;
+        private int[][] random;
 
-        public GameSession()
+        public GameSession(int i)
         {
+            new Matrix();
+            var randomized = new RandomizeMatrix();
+            difficulty = i;
+            var hint = new HintGenerator(difficulty);
+            coordinates = hint.coordinates;
+            random = randomized.finalmatrix;
             InitializeComponent();
             GenerateSudokuGrid();
+            ShowHints();
         }
 
         private void ToMainMenu(object sender, RoutedEventArgs e)
@@ -42,6 +53,17 @@ namespace SudokuGame
             return new Thickness(left, top, right, bottom);
         }
 
+
+        private void ShowHints()
+        {
+            for(int i=0; i<coordinates.Count; i++)
+            {
+                sudokuTextBoxes[coordinates[i][0], coordinates[i][1]].Text = random[coordinates[i][0]][coordinates[i][1]].ToString();
+                sudokuTextBoxes[coordinates[i][0], coordinates[i][1]].IsReadOnly = true;
+                sudokuTextBoxes[coordinates[i][0], coordinates[i][1]].Background = Brushes.LemonChiffon;
+                _textBoxesValidation[coordinates[i][0], coordinates[i][1]] = random[coordinates[i][0]][coordinates[i][1]].ToString();
+            }
+        }
 
 
         private void GenerateSudokuGrid()
@@ -91,6 +113,7 @@ namespace SudokuGame
             }
             else if (uint.TryParse(textBox.Text, out var number) && number <= 9)
             {
+                textBox.FontWeight = FontWeights.SemiBold;
                 _textBoxesValidation[x, y] = textBox.Text;
             }
             else
@@ -100,7 +123,35 @@ namespace SudokuGame
             }
         }
 
+        private void Retry(object sender, RoutedEventArgs e)
+        {
+            Navigator.Default.Navigate(new GameSession(difficulty));
+        }
 
+        private void Completing(object sender, RoutedEventArgs e)
+        {
+            if (Check()) 
+            { 
+                Navigator.Default.Navigate(new CongratulationPage()); 
+            }
+            else
+            {
+                MessageBox.Show("Oh! I'm afraid there is a mistake! Try again!");
+            }
+        }
 
+        private bool Check()
+        {
+            var check = true;
+            for(int i=0; i<9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    int.TryParse(_textBoxesValidation[i,j], out var number);
+                    if (random[i][j] != number) { check = false; }
+                }
+            }
+            return check;
+        }
     }
 }

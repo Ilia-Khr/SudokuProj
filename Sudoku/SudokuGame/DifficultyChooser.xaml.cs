@@ -40,19 +40,19 @@ namespace SudokuGame
         private void OnEasyClick(object sender, RoutedEventArgs e)
         {
             currentDiffculty = Difficulty.Easy;
-            Navigator.Default.Navigate(new GameSession());
+            Navigator.Default.Navigate(new GameSession(1));
         }
 
         private void OnMediumClick(object sender, RoutedEventArgs e)
         {
             currentDiffculty = Difficulty.Medium;
-            Navigator.Default.Navigate(new GameSession());
+            Navigator.Default.Navigate(new GameSession(2));
         }
 
         private void OnHardClick(object sender, RoutedEventArgs e)
         {
             currentDiffculty = Difficulty.Hard;
-            Navigator.Default.Navigate(new GameSession());
+            Navigator.Default.Navigate(new GameSession(3));
         }
     }
 }
