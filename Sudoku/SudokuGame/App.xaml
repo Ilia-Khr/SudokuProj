@@ -63,6 +63,11 @@
             <Setter Property="TextElement.FontSize" Value="18"/>
         </Style>
 
+        <Style x:Key="JAPTextBoxStyle" TargetType="TextBox">
+            <Setter Property="TextElement.FontFamily" Value="/fonts/#Bonzai"/>
+            <Setter Property="TextElement.FontSize" Value="30"/>
+        </Style>
+
         <Style x:Key="BronzeButton" TargetType="Button">
             <Setter Property="FontSize" Value="35"/>
             <Setter Property="FontFamily" Value="/fonts/#Bonzai"/>
