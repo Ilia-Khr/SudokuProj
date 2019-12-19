@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Sudoku.Repository;
 
 namespace SudokuGame
 {
@@ -18,14 +19,21 @@ namespace SudokuGame
     /// </summary>
     public partial class Leaderboards : Page
     {
+        Repository _repos = new Repository();
         public Leaderboards()
         {
             InitializeComponent();
+            AverageTime();
         }
 
         private void ToMainMenu(object sender, RoutedEventArgs e)
         {
             Navigator.Default.Navigate(new MainMenu());
+        }
+
+        private void AverageTime()
+        {
+            avtime.Text = _repos.AverageTime();
         }
     }
 }

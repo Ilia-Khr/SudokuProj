@@ -1,4 +1,5 @@
 ﻿using Sudoku.Manipulation;
+using Sudoku.GameModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,10 +25,11 @@ namespace SudokuGame
         private List<int[]> coordinates;
         private int difficulty;
         private int[][] random;
+        private Session _currentsession;
 
         public GameSession(int i)
         {
-            new Matrix();
+            _currentsession = new Session();
             var randomized = new RandomizeMatrix();
             difficulty = i;
             var hint = new HintGenerator(difficulty);
