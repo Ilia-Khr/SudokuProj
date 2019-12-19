@@ -41,7 +41,7 @@ namespace SudokuGame
 
         private void Continue(object sender, RoutedEventArgs e)
         {
-            Navigator.Default.Navigate(new CongratulationPage(_repos));
+            Navigator.Default.Navigate(new CongratulationPage(_repos, _session));
         }
     }
 }

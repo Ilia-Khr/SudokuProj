@@ -142,7 +142,7 @@ namespace SudokuGame
                 { 
                     Navigator.Default.Navigate(new NewRecordRegistration(_currentsession, _repos));
                 }
-                Navigator.Default.Navigate(new CongratulationPage(_repos)); 
+                Navigator.Default.Navigate(new CongratulationPage(_repos, _currentsession)); 
             }
             else
             {

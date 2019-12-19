@@ -21,10 +21,10 @@ namespace SudokuGame
     public partial class Leaderboards : Page
     {
 
-        private List<Record> _recordsessions = new List<Record>();
+        public List<Record> _recordsessions = new List<Record>();
         public Leaderboards(Repository _repos)
         {
-            AverageTime(_repos);
+        //    AverageTime(_repos);
             _repos.BindRecords(_recordsessions);
             InitializeComponent();
     

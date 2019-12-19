@@ -1,4 +1,5 @@
-﻿using Sudoku.Repository;
+﻿using Sudoku.GameModel;
+using Sudoku.Repository;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,8 +21,9 @@ namespace SudokuGame
     public partial class CongratulationPage : Page
     {
         private Repository _repos;
-        public CongratulationPage(Repository rep)
+        public CongratulationPage(Repository rep, Session session)
         {
+          //  time.Text = session.TotalTimeMinutes.ToString();
             InitializeComponent();
             _repos = rep;
         }

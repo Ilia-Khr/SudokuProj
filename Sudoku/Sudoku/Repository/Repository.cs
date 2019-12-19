@@ -10,11 +10,11 @@ namespace Sudoku.Repository
 {
     public class Repository
     {
-        private const string _sessions = "../Sudoku/Data/sessions.json";
-        private const string _records = "../Sudoku/Data/records.json";
+        private const string _sessions = "../../../../Sudoku/Data/sessions.json";
+        private const string _records = "../../../../Sudoku/Data/records.json";
 
-        private List<Session> sessions = new List<Session>();
-        private List<Record> records = new List<Record>();
+        private List<Session> sessions ;
+        private List<Record> records ;
 
         public void BindRecords(List<Record> list)
         {
@@ -23,7 +23,7 @@ namespace Sudoku.Repository
 
         public decimal AverageTime()
         {
-            decimal time = sessions.Average(x => x.TotalTimeMinutes) ?? 0;
+            decimal time = sessions.Average(x => x.TotalTimeMinutes);
             return time;
         }
 
@@ -87,6 +87,7 @@ namespace Sudoku.Repository
             {
                 var data = sr.ReadToEnd();
                 var list = JsonConvert.DeserializeObject<List<T>>(data);
+                collection = new List<T>();
                 collection.AddRange(list);
             }
         }
