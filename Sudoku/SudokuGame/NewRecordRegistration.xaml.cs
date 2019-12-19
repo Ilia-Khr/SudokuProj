@@ -26,11 +26,7 @@ namespace SudokuGame
         {
             InitializeComponent();
             _session = session;
-            
-            if(recordname.Text != null)
-            {
-                RegisterRecord();
-            }
+           
 
         }
 
@@ -41,6 +37,11 @@ namespace SudokuGame
 
         private void Continue(object sender, RoutedEventArgs e)
         {
+
+            if (recordname.Text != null)
+            {
+                RegisterRecord();
+            }
             Navigator.Default.Navigate(new CongratulationPage(_session));
         }
     }

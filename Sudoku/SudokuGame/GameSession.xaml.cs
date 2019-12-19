@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Sudoku.Repository;
+using System.Windows.Threading;
 
 namespace SudokuGame
 {
@@ -28,6 +29,9 @@ namespace SudokuGame
         private int[][] random;
         private Session _currentsession;
         private Repository _repos = new Repository();
+        private DateTime fixedDate = DateTime.Now;
+
+
         public GameSession(int i)
         {
             InitializeComponent();
@@ -41,6 +45,24 @@ namespace SudokuGame
             
             GenerateSudokuGrid();
             ShowHints();
+
+            DispatcherTimer sudokuTimer = new DispatcherTimer();
+            sudokuTimer.Interval = TimeSpan.FromSeconds(1);
+
+            sudokuTimer.Tick += timerTick;
+
+            sudokuTimer.Start();
+        }
+
+        private void timerTick(object sender, EventArgs e)
+        {
+            DateTime dt1 = DateTime.Now;
+            TimeSpan dtdiff = dt1 - fixedDate;
+            int hours = dtdiff.Hours;
+            int minutes = dtdiff.Minutes;
+            int seconds = dtdiff.Seconds;
+
+            sudokuTimerLabel.Content = new DateTime(2019, 12, 19, hours, minutes, seconds).ToLongTimeString();
         }
 
         private void ToMainMenu(object sender, RoutedEventArgs e)
@@ -137,15 +159,21 @@ namespace SudokuGame
         {
             if (Check()) 
             {
+
                 _repos.CloseGame(_currentsession);
-                if (_repos.BestSessionCheck(_currentsession)) 
-                { 
+                if (_repos.BestSessionCheck(_currentsession.TotalTimeMinutes)) 
+                {
+               
+                    _repos.Add(_currentsession);
                     Navigator.Default.Navigate(new NewRecordRegistration(_currentsession));
                 }
+               
+                _repos.Add(_currentsession);
                 Navigator.Default.Navigate(new CongratulationPage(_currentsession)); 
             }
             else
             {
+
                 MessageBox.Show("Oh! I'm afraid there is a mistake! Try again!");
             }
         }

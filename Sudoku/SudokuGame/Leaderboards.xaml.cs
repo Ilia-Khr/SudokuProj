@@ -26,9 +26,10 @@ namespace SudokuGame
         {
             InitializeComponent();
             AverageTime(_repos);
-            _repos.BindRecords(_recordsessions);
-           
-    
+            _recordsessions = _repos.GetSortedRecords();
+            _recordsTable.ItemsSource = _recordsessions;
+
+
         }
 
         private void ToMainMenu(object sender, RoutedEventArgs e)

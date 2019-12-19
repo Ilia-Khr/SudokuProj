@@ -34,9 +34,9 @@
         <TextBlock Height="175" Margin="0,50,0,0" VerticalAlignment="Top" Width="644"
                    Text="Congratulations! You Solved Sudoku!" Style="{StaticResource TextHeaderStyle}" FontSize="65" TextWrapping="Wrap"/>
         <TextBlock Height="41" Margin="164,225,0,0" VerticalAlignment="Top" Width="236"
-                   Name="time" Style="{StaticResource TextHeaderStyle}" FontSize="40" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+                   Text="Your Time:" Style="{StaticResource TextHeaderStyle}" FontSize="40" TextWrapping="Wrap" HorizontalAlignment="Left"/>
         <TextBlock Height="41" Margin="400,230,0,0" VerticalAlignment="Top" Width="236"
-                   Text="some time here: " Style="{StaticResource TextHeaderStyle}" FontSize="30" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+                   Name="time" Style="{StaticResource TextHeaderStyle}" FontSize="30" TextWrapping="Wrap" HorizontalAlignment="Left"/>
 
 
     </Grid>

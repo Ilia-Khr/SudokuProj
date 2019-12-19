@@ -23,7 +23,7 @@
         <Image HorizontalAlignment="Center" VerticalAlignment="Center" Margin="120,20,120,20" Grid.Row="1"
                Source="pack://application:,,,/images/lbframe3.png"/>
 
-        <DataGrid Name="_recordsTable" HorizontalAlignment="Center" ItemsSource="_recordsessions" VerticalAlignment="Center" AutoGenerateColumns="False" RowBackground="Beige" BorderBrush="DarkRed" BorderThickness="5" Grid.Row="1" Height="246" Width="374">
+        <DataGrid Name="_recordsTable" HorizontalAlignment="Center"  VerticalAlignment="Center" AutoGenerateColumns="False" RowBackground="Beige" BorderBrush="DarkRed" BorderThickness="5" Grid.Row="1" Height="246" Width="374">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=GamerName}" Header="Nickname" Width="50*" HeaderStyle="{StaticResource TableHeaderStyle}" FontFamily="/fonts/#Bonzai" />
                 <DataGridTextColumn Binding="{Binding Path=TotalTimeMinutes}" Header="Time" Width="20*" HeaderStyle="{StaticResource TableHeaderStyle}" FontFamily="/fonts/#Bonzai"/>
