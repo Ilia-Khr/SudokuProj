@@ -13,8 +13,8 @@ namespace Sudoku.Repository
         private const string _sessions = "../../../../Sudoku/Data/sessions.json";
         private const string _records = "../../../../Sudoku/Data/records.json";
 
-        private List<Session> sessions ;
-        private List<Record> records ;
+        private List<Session> sessions = new List<Session>() ;
+        private List<Record> records = new List<Record>();
 
         public void BindRecords(List<Record> list)
         {
