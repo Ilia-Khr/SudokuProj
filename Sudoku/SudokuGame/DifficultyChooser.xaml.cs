@@ -27,11 +27,11 @@ namespace SudokuGame
 
     public partial class DifficultyChooser : Page
     {
-        private Repository _repos;
+    
         public Difficulty currentDiffculty = new Difficulty();
-        public DifficultyChooser(Repository repos)
+        public DifficultyChooser()
         {
-            _repos = repos;
+
             InitializeComponent();
         }
 
@@ -43,19 +43,19 @@ namespace SudokuGame
         private void OnEasyClick(object sender, RoutedEventArgs e)
         {
             currentDiffculty = Difficulty.Easy;
-            Navigator.Default.Navigate(new GameSession(1, _repos));
+            Navigator.Default.Navigate(new GameSession(1 ));
         }
 
         private void OnMediumClick(object sender, RoutedEventArgs e)
         {
             currentDiffculty = Difficulty.Medium;
-            Navigator.Default.Navigate(new GameSession(2, _repos));
+            Navigator.Default.Navigate(new GameSession(2));
         }
 
         private void OnHardClick(object sender, RoutedEventArgs e)
         {
             currentDiffculty = Difficulty.Hard;
-            Navigator.Default.Navigate(new GameSession(3, _repos));
+            Navigator.Default.Navigate(new GameSession(3));
         }
     }
 }

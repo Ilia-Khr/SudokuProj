@@ -20,22 +20,22 @@ namespace SudokuGame
     /// </summary>
     public partial class CongratulationPage : Page
     {
-        private Repository _repos;
-        public CongratulationPage(Repository rep, Session session)
+        
+        public CongratulationPage(Session session)
         {
-          //  time.Text = session.TotalTimeMinutes.ToString();
             InitializeComponent();
-            _repos = rep;
+            time.Text = session.TotalTimeMinutes.ToString();            
+         
         }
 
         public void OnNewGameClick(object sender, RoutedEventArgs e)
         {
-            Navigator.Default.Navigate(new DifficultyChooser(_repos));
+            Navigator.Default.Navigate(new DifficultyChooser());
         }
 
         public void OnLeaderboardsClick(object sender, RoutedEventArgs e)
         {
-            Navigator.Default.Navigate(new Leaderboards(_repos));
+            Navigator.Default.Navigate(new Leaderboards());
         }
         private void ToMainMenu(object sender, RoutedEventArgs e)
         {

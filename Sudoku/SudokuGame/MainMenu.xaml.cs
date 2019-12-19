@@ -22,12 +22,12 @@ namespace SudokuGame
         Repository _repos = new Repository();
         public void OnNewGameClick(object sender, RoutedEventArgs e)
         {
-            Navigator.Default.Navigate(new DifficultyChooser(_repos));
+            Navigator.Default.Navigate(new DifficultyChooser());
         }
 
         public void OnLeaderboardsClick(object sender, RoutedEventArgs e)
         {
-            Navigator.Default.Navigate(new Leaderboards(_repos));
+            Navigator.Default.Navigate(new Leaderboards());
         }
 
         public void OnExitClick(object sender, RoutedEventArgs e)

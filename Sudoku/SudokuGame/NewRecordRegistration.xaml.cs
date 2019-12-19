@@ -21,12 +21,12 @@ namespace SudokuGame
     public partial class NewRecordRegistration : Page
     {
         private Session _session;
-        private Repository _repos;
-        public NewRecordRegistration(Session session, Repository repos)
+        private Repository _repos = new Repository();
+        public NewRecordRegistration(Session session)
         {
             InitializeComponent();
             _session = session;
-            _repos = repos;
+            
             if(recordname.Text != null)
             {
                 RegisterRecord();
@@ -41,7 +41,7 @@ namespace SudokuGame
 
         private void Continue(object sender, RoutedEventArgs e)
         {
-            Navigator.Default.Navigate(new CongratulationPage(_repos, _session));
+            Navigator.Default.Navigate(new CongratulationPage(_session));
         }
     }
 }

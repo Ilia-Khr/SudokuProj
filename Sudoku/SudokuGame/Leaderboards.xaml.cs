@@ -20,13 +20,14 @@ namespace SudokuGame
     /// </summary>
     public partial class Leaderboards : Page
     {
-
+        private Repository _repos = new Repository();
         public List<Record> _recordsessions = new List<Record>();
-        public Leaderboards(Repository _repos)
+        public Leaderboards()
         {
-        //    AverageTime(_repos);
-            _repos.BindRecords(_recordsessions);
             InitializeComponent();
+            AverageTime(_repos);
+            _repos.BindRecords(_recordsessions);
+           
     
         }
 

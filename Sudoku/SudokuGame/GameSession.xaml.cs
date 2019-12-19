@@ -27,11 +27,11 @@ namespace SudokuGame
         private int difficulty;
         private int[][] random;
         private Session _currentsession;
-        private Repository _repos;
-        public GameSession(int i, Repository repos)
+        private Repository _repos = new Repository();
+        public GameSession(int i)
         {
             InitializeComponent();
-            _repos = repos;
+
             _currentsession = new Session();
             var randomized = new RandomizeMatrix();
             difficulty = i;
@@ -130,7 +130,7 @@ namespace SudokuGame
 
         private void Retry(object sender, RoutedEventArgs e)
         {
-            Navigator.Default.Navigate(new GameSession(difficulty, _repos));
+            Navigator.Default.Navigate(new GameSession(difficulty));
         }
 
         private void Completing(object sender, RoutedEventArgs e)
@@ -140,9 +140,9 @@ namespace SudokuGame
                 _repos.CloseGame(_currentsession);
                 if (_repos.BestSessionCheck(_currentsession)) 
                 { 
-                    Navigator.Default.Navigate(new NewRecordRegistration(_currentsession, _repos));
+                    Navigator.Default.Navigate(new NewRecordRegistration(_currentsession));
                 }
-                Navigator.Default.Navigate(new CongratulationPage(_repos, _currentsession)); 
+                Navigator.Default.Navigate(new CongratulationPage(_currentsession)); 
             }
             else
             {

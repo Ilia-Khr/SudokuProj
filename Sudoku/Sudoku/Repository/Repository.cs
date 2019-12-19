@@ -16,6 +16,11 @@ namespace Sudoku.Repository
         private List<Session> sessions = new List<Session>() ;
         private List<Record> records = new List<Record>();
 
+        public Repository()
+        {
+            StartTheGame();
+        }
+
         public void BindRecords(List<Record> list)
         {
             list = records;
