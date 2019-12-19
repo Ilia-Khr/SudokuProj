@@ -16,6 +16,10 @@ namespace Sudoku.Repository
         private List<Session> sessions = new List<Session>();
         private List<Record> records = new List<Record>();
 
+        public void BindRecords(List<Record> list)
+        {
+            list = records;
+        }
 
         public decimal AverageTime()
         {
