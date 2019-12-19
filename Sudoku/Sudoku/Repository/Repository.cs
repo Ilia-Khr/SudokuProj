@@ -48,11 +48,6 @@ namespace Sudoku.Repository
         public bool BestSessionCheck(decimal time) => 
             time < sessions.Min(x => x.TotalTimeMinutes);
 
-        public decimal Check() =>
-
-            sessions.Min(x => x.TotalTimeMinutes);
-        
-
 
         public void Record(string Name, Session session)
         {
