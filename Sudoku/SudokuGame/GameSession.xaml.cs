@@ -167,9 +167,12 @@ namespace SudokuGame
                     _repos.Add(_currentsession);
                     Navigator.Default.Navigate(new NewRecordRegistration(_currentsession));
                 }
-               
-                _repos.Add(_currentsession);
-                Navigator.Default.Navigate(new CongratulationPage(_currentsession)); 
+                else 
+                {
+                    _repos.Add(_currentsession);
+                    Navigator.Default.Navigate(new CongratulationPage(_currentsession)); 
+                }               
+                 
             }
             else
             {

@@ -25,11 +25,11 @@ namespace Sudoku.Repository
             => records.OrderByDescending(value => value.TotalTimeMinutes)
             .ToList();
 
-        public decimal AverageTime()
-        {
-            decimal time = sessions.Average(x => x.TotalTimeMinutes);
-            return time;
-        }
+
+        public decimal AverageTime() => 
+            sessions.Average(x => x.TotalTimeMinutes);
+            
+        
 
         public void CloseGame(Session session)
         {
@@ -45,12 +45,14 @@ namespace Sudoku.Repository
             SaveData<Session>(sessions, _sessions);
         }
 
-        public bool BestSessionCheck(decimal time)
-        {
-            var sessiontocheck = sessions.FirstOrDefault(x => x.TotalTimeMinutes < time);
-            if (sessiontocheck == null) return true;
-            else return false;
-        }
+        public bool BestSessionCheck(decimal time) => 
+            time < sessions.Min(x => x.TotalTimeMinutes);
+
+        public decimal Check() =>
+
+            sessions.Min(x => x.TotalTimeMinutes);
+        
+
 
         public void Record(string Name, Session session)
         {

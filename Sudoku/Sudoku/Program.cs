@@ -1,14 +1,19 @@
 ﻿using Sudoku.Manipulation;
 using Sudoku.Model;
+using Sudoku.Repository;
 
 using System;
 
-namespace Sudoku
+namespace Sudoku.Repository
 {
     class Program
     {
         static void Main(string[] args)
         {
+
+
+            var repos = new Repository();
+            Console.Write($"{repos.BestSessionCheck(1)} with {repos.Check()}");
             Matrix matrix = new Matrix();
             var randomized = new RandomizeMatrix();
             HintGenerator generator = new HintGenerator(2);
