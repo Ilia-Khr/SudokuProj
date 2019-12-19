@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Sudoku.Repository;
 
 namespace SudokuGame
 {
@@ -26,16 +27,18 @@ namespace SudokuGame
         private int difficulty;
         private int[][] random;
         private Session _currentsession;
-
-        public GameSession(int i)
+        private Repository _repos;
+        public GameSession(int i, Repository repos)
         {
+            InitializeComponent();
+            _repos = repos;
             _currentsession = new Session();
             var randomized = new RandomizeMatrix();
             difficulty = i;
             var hint = new HintGenerator(difficulty);
             coordinates = hint.coordinates;
             random = randomized.finalmatrix;
-            InitializeComponent();
+            
             GenerateSudokuGrid();
             ShowHints();
         }
@@ -127,14 +130,19 @@ namespace SudokuGame
 
         private void Retry(object sender, RoutedEventArgs e)
         {
-            Navigator.Default.Navigate(new GameSession(difficulty));
+            Navigator.Default.Navigate(new GameSession(difficulty, _repos));
         }
 
         private void Completing(object sender, RoutedEventArgs e)
         {
             if (Check()) 
-            { 
-                Navigator.Default.Navigate(new CongratulationPage()); 
+            {
+                _repos.CloseGame(_currentsession);
+                if (_repos.BestSessionCheck(_currentsession)) 
+                { 
+                    Navigator.Default.Navigate(new NewRecordRegistration(_currentsession, _repos));
+                }
+                Navigator.Default.Navigate(new CongratulationPage(_repos)); 
             }
             else
             {

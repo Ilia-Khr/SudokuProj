@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Sudoku.GameModel;
+using Sudoku.Repository;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +20,28 @@ namespace SudokuGame
     /// </summary>
     public partial class NewRecordRegistration : Page
     {
-        public NewRecordRegistration()
+        private Session _session;
+        private Repository _repos;
+        public NewRecordRegistration(Session session, Repository repos)
         {
             InitializeComponent();
+            _session = session;
+            _repos = repos;
+            if(recordname.Text != null)
+            {
+                RegisterRecord();
+            }
+
+        }
+
+        private void RegisterRecord()
+        {
+            _repos.Record(recordname.Text, _session);
+        }
+
+        private void Continue(object sender, RoutedEventArgs e)
+        {
+            Navigator.Default.Navigate(new CongratulationPage(_repos));
         }
     }
 }

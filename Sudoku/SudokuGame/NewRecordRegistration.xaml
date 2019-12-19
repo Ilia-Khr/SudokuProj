@@ -22,9 +22,9 @@
                    Text="Looks like you managed to set the new record!" Style="{StaticResource TextHeaderStyle}" FontSize="55" TextWrapping="Wrap"/>
         <TextBlock Height="41" Margin="78,225,0,0" VerticalAlignment="Top" Width="322"
                    Text="Enter your Nickname: " Style="{StaticResource TextHeaderStyle}" FontSize="30" TextWrapping="Wrap" HorizontalAlignment="Left"/>
-        <TextBox HorizontalAlignment="Left" Margin="405,230,0,0" Text="" Style="{StaticResource JAPTextBoxStyle}" VerticalAlignment="Top" Width="317" Height="36"/>
+        <TextBox HorizontalAlignment="Left" Margin="405,230,0,0" Name="recordname" Style="{StaticResource JAPTextBoxStyle}" VerticalAlignment="Top" Width="317" Height="36"/>
         <Button HorizontalAlignment="Center" Height="60" Grid.Row="1" VerticalAlignment="Center" Width="200"
-                Content="Continue" Style="{StaticResource ButtonJAPStyle}"/>
+                Content="Continue" Click="Continue" Style="{StaticResource ButtonJAPStyle}"/>
 
 
 

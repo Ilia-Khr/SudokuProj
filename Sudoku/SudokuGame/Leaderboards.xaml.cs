@@ -19,11 +19,11 @@ namespace SudokuGame
     /// </summary>
     public partial class Leaderboards : Page
     {
-        Repository _repos = new Repository();
-        public Leaderboards()
+        
+        public Leaderboards(Repository _repos)
         {
             InitializeComponent();
-            AverageTime();
+            AverageTime(_repos);
         }
 
         private void ToMainMenu(object sender, RoutedEventArgs e)
@@ -31,7 +31,7 @@ namespace SudokuGame
             Navigator.Default.Navigate(new MainMenu());
         }
 
-        private void AverageTime()
+        private void AverageTime(Repository _repos)
         {
             avtime.Text = _repos.AverageTime().ToString();
         }

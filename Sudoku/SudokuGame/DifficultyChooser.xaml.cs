@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sudoku.Repository;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -26,9 +27,11 @@ namespace SudokuGame
 
     public partial class DifficultyChooser : Page
     {
+        private Repository _repos;
         public Difficulty currentDiffculty = new Difficulty();
-        public DifficultyChooser()
+        public DifficultyChooser(Repository repos)
         {
+            _repos = repos;
             InitializeComponent();
         }
 
@@ -40,19 +43,19 @@ namespace SudokuGame
         private void OnEasyClick(object sender, RoutedEventArgs e)
         {
             currentDiffculty = Difficulty.Easy;
-            Navigator.Default.Navigate(new GameSession(1));
+            Navigator.Default.Navigate(new GameSession(1, _repos));
         }
 
         private void OnMediumClick(object sender, RoutedEventArgs e)
         {
             currentDiffculty = Difficulty.Medium;
-            Navigator.Default.Navigate(new GameSession(2));
+            Navigator.Default.Navigate(new GameSession(2, _repos));
         }
 
         private void OnHardClick(object sender, RoutedEventArgs e)
         {
             currentDiffculty = Difficulty.Hard;
-            Navigator.Default.Navigate(new GameSession(3));
+            Navigator.Default.Navigate(new GameSession(3, _repos));
         }
     }
 }

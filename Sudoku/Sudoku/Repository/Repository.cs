@@ -10,17 +10,12 @@ namespace Sudoku.Repository
 {
     public class Repository
     {
-        private const string _sessions = "../../../Data/sessions.json";
-        private const string _records = "../../../Data/records.json";
+        private const string _sessions = "../Sudoku/Data/sessions.json";
+        private const string _records = "../Sudoku/Data/records.json";
 
         private List<Session> sessions = new List<Session>();
         private List<Record> records = new List<Record>();
 
-        public void AddSession(Session session)
-
-        {
-            sessions.Add(session);
-        }
 
         public decimal AverageTime()
         {
@@ -30,6 +25,7 @@ namespace Sudoku.Repository
 
         public void CloseGame(Session session)
         {
+            sessions.Add(session);
             session.Ended = DateTime.Now;
             session.TotalTimeMinutes = (decimal)session.Ended.Value.Subtract(session.Started).TotalMinutes;
             SaveData<Session>(sessions, _sessions);
@@ -52,6 +48,12 @@ namespace Sudoku.Repository
                 TotalTimeMinutes = session.TotalTimeMinutes,
                 GamerName = Name
             });
+
+            while (records.Count > 15)
+            {
+                records.RemoveAt(0);
+            }
+
             SaveData<Record>(records, _records);
         }
 

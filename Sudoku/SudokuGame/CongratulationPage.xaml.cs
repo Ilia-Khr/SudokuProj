@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sudoku.Repository;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,19 +19,21 @@ namespace SudokuGame
     /// </summary>
     public partial class CongratulationPage : Page
     {
-        public CongratulationPage()
+        private Repository _repos;
+        public CongratulationPage(Repository rep)
         {
             InitializeComponent();
+            _repos = rep;
         }
 
         public void OnNewGameClick(object sender, RoutedEventArgs e)
         {
-            Navigator.Default.Navigate(new DifficultyChooser());
+            Navigator.Default.Navigate(new DifficultyChooser(_repos));
         }
 
         public void OnLeaderboardsClick(object sender, RoutedEventArgs e)
         {
-            Navigator.Default.Navigate(new Leaderboards());
+            Navigator.Default.Navigate(new Leaderboards(_repos));
         }
         private void ToMainMenu(object sender, RoutedEventArgs e)
         {
