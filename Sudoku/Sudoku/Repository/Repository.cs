@@ -87,7 +87,7 @@ namespace Sudoku.Repository
             {
                 var data = sr.ReadToEnd();
                 var list = JsonConvert.DeserializeObject<List<T>>(data);
-                collection = new List<T>();
+
                 collection.AddRange(list);
             }
         }
