@@ -95,7 +95,7 @@ namespace SudokuGame
 
         private void GenerateSudokuGrid()
         {
-
+            // This Method was partially borrowed from here: https://github.com/manio143/Sudoku 
             sudokuTextBoxes = new TextBox[9, 9];
             _textBoxesValidation = new string[9, 9];
             for (int i = 0; i < 9; i++)
