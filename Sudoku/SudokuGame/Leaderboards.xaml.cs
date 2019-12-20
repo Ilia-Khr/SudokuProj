@@ -39,7 +39,7 @@ namespace SudokuGame
 
         private void AverageTime(Repository _repos)
         {
-            avtime.Text = _repos.AverageTime().ToString();
+            avtime.Text = _repos.AverageTime();
         }
     }
 }

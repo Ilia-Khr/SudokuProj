@@ -9,7 +9,8 @@ namespace Sudoku.InterfaceAndAbstract
         public Guid SessionId { get; set; }
         public DateTime Started { get; set; }
         public DateTime? Ended { get; set; }
-        public decimal TotalTimeMinutes { get; set; }
+        public int TotalTime { get; set; }
+        public string ToShow { get; set; }
 
     }
 }

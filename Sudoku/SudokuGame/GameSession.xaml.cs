@@ -161,7 +161,7 @@ namespace SudokuGame
             {
 
                 _repos.CloseGame(_currentsession);
-                if (_repos.BestSessionCheck(_currentsession.TotalTimeMinutes)) 
+                if (_repos.BestSessionCheck(_currentsession.TotalTime)) 
                 {
                
                     _repos.Add(_currentsession);

@@ -13,7 +13,7 @@ namespace Sudoku.Repository
 
 
             var repos = new Repository();
-            Console.Write($"{repos.BestSessionCheck(1)}}");
+            Console.Write($"{repos.BestSessionCheck(1)}");
             Matrix matrix = new Matrix();
             var randomized = new RandomizeMatrix();
             HintGenerator generator = new HintGenerator(2);

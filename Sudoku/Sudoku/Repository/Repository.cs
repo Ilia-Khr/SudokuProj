@@ -22,20 +22,62 @@ namespace Sudoku.Repository
         }
 
         public List<Record> GetSortedRecords()
-            => records.OrderByDescending(value => value.TotalTimeMinutes)
+            => records.OrderByDescending(value => value.TotalTime)
             .ToList();
 
 
-        public decimal AverageTime() => 
-            sessions.Average(x => x.TotalTimeMinutes);
-            
+        public string AverageTime()
+        {
+            var time = sessions.Average(x => x.TotalTime);
+            int seconds = (int) time / 1;
+            var result = GetTimeToShow(seconds);
+            return result;
+        }
+           
+        private string GetTimeToShow(int time)
+        {
+            var hours = time / 360;
+            var minutes = time / 60;
+            var seconds = time % 60;
+            string min;
+            string sec;
+            string h;
+            if (minutes < 10)
+            {
+                min = "0" + minutes.ToString();
+            }
+            else 
+            {
+                min = minutes.ToString();
+            }
+            if (seconds < 10)
+            {
+               sec = "0" + seconds.ToString().Substring(0,1);
+            }
+            else
+            {
+                sec = seconds.ToString().Substring(0,2);
+            }
+            if (hours < 10)
+            {
+                h = "0" + hours.ToString();
+            }
+            else
+            {
+                h = hours.ToString();
+            }
+            return h +':'+min + ':' + sec;
+
+        }
         
 
         public void CloseGame(Session session)
         {
-            
             session.Ended = DateTime.Now;
-            session.TotalTimeMinutes = (decimal)session.Ended.Value.Subtract(session.Started).TotalMinutes;
+            var time = (int)session.Ended.Value.Subtract(session.Started).TotalSeconds;
+            
+            session.TotalTime = time;
+            session.ToShow = GetTimeToShow(time);
             
         }
 
@@ -46,7 +88,7 @@ namespace Sudoku.Repository
         }
 
         public bool BestSessionCheck(decimal time) => 
-            time < sessions.Min(x => x.TotalTimeMinutes);
+            time < sessions.Min(x => x.TotalTime);
 
 
         public void Record(string Name, Session session)
@@ -56,7 +98,8 @@ namespace Sudoku.Repository
                 SessionId = session.SessionId,
                 Started = session.Started,
                 Ended = session.Ended,
-                TotalTimeMinutes = session.TotalTimeMinutes,
+                TotalTime = session.TotalTime,
+                ToShow= session.ToShow,
                 GamerName = Name
             });
 

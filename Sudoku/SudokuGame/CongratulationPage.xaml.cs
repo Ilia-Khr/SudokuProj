@@ -24,7 +24,7 @@ namespace SudokuGame
         public CongratulationPage(Session session)
         {
             InitializeComponent();
-            time.Text = session.TotalTimeMinutes.ToString();            
+            time.Text = session.ToShow;            
          
         }
 
